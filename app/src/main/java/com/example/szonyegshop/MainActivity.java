@@ -29,4 +29,5 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i(LOG_TAG, "Bejelentkezett " + usernameStr + ", jelszó " + passwordStr);
     }
+    //alma
 }
