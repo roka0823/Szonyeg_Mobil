@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         String usernameStr = userNameET.getText().toString();
         String passwordStr = passwordET.getText().toString();
 
-        Log.i(LOG_TAG, "Bejelentkezett" + usernameStr + ", jelszó " + passwordStr);
+        Log.i(LOG_TAG, "Bejelentkezett " + usernameStr + ", jelszó " + passwordStr);
     }
 
     public void register(View view) {
