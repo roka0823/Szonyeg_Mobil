@@ -2,6 +2,7 @@ package com.example.szonyegshop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getName();
+    private static final int SECRET_KEY = 99;
 
     EditText userNameET;
     EditText passwordET;
@@ -30,4 +32,9 @@ public class MainActivity extends AppCompatActivity {
         Log.i(LOG_TAG, "Bejelentkezett" + usernameStr + ", jelszó " + passwordStr);
     }
 
+    public void register(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        intent.putExtra("SECRET_KEY", 99);
+        startActivity(intent);
+    }
 }
