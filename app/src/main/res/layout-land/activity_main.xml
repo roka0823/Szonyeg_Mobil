@@ -16,36 +16,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/EditTextUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/name"
-        android:inputType="text"
-        android:padding="15dp"
-        android:textColorHint="#424242"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.081" />
+        <EditText
+            android:id="@+id/EditTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:ems="10"
+            android:hint="@string/name"
+            android:inputType="text"
+            android:padding="15dp"
+            android:textColorHint="#424242"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.123" />
 
-    <EditText
-        android:id="@+id/EditTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textColorHint="#424242"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditTextUsername"
-        app:layout_constraintVertical_bias="0.087"
-        tools:layout_editor_absoluteX="0dp" />
+        <EditText
+            android:id="@+id/EditTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="password"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textColorHint="#424242"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EditTextUsername"
+            app:layout_constraintVertical_bias="0.193"
+            tools:layout_editor_absoluteX="0dp" />
 
-    <Button
+        <Button
         android:id="@+id/LoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,7 +59,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EditTextPassword"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintVertical_bias="0.241"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/RegisterButton"
@@ -70,7 +74,8 @@
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginButton"
-        app:layout_constraintVertical_bias="0.367" />
+        app:layout_constraintVertical_bias="0.367"
+        tools:ignore="UsingOnClickInXml" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

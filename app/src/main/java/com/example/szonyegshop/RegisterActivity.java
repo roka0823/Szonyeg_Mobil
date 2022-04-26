@@ -30,9 +30,9 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         userNameEditText = findViewById(R.id.userNameEditText);
-        userEmailEditText = findViewById(R.id.userEmailEditText);;
-        passwordEditText = findViewById(R.id.passwordEditText);;
-        PasswordConfirmEditText = findViewById(R.id.passwordAgainEditText);;
+        userEmailEditText = findViewById(R.id.userEmailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
+        PasswordConfirmEditText = findViewById(R.id.passwordAgainEditText);
 
         preferences = getSharedPreferences(PREF_KEY, MODE_PRIVATE);
 
@@ -89,5 +89,9 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.i(LOG_TAG, "onResume");
+    }
+
+    public void cancel(View view) {
+        finish();
     }
 }

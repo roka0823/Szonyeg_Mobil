@@ -19,6 +19,7 @@
             android:id="@+id/EditTextUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="name"
             android:hint="@string/name"
             android:inputType="text"
             android:padding="15dp"
@@ -36,6 +37,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/password"
+            android:autofillHints="password"
             android:inputType="textPassword"
             android:padding="15dp"
             android:textColorHint="#424242"
@@ -54,7 +56,8 @@
             app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditTextPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/EditTextPassword"
+            tools:ignore="UsingOnClickInXml" />
 
         <Button
             android:id="@+id/RegisterButton"
@@ -63,10 +66,12 @@
             android:layout_marginBottom="196dp"
             android:onClick="register"
             android:text="@string/registration"
+            android:textColor="#D7CCC8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="UsingOnClickInXml" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
