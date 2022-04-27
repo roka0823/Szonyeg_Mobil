@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class ShopListActivity extends AppCompatActivity {
     private static final String LOG_TAG = ShopListActivity.class.getName();
     private FirebaseUser user;
+    private FirebaseUser mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
