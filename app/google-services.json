@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "122345684293",
+    "project_id": "szonyegshopapp",
+    "storage_bucket": "szonyegshopapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122345684293:android:75893e8acc131987ac122c",
+        "android_client_info": {
+          "package_name": "com.example.szonyegshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122345684293-cl95j576251pk35aq6jpobgkcscmmejd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.szonyegshop",
+            "certificate_hash": "87bcb026a2b0fdb804aea062cb35880aea66698b"
+          }
+        },
+        {
+          "client_id": "122345684293-ttlfg640s55hj6bh4p65lo15sdn9kgn6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHllBVaYhFjB9fTeqip-gL0SqnAfenuK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122345684293-ttlfg640s55hj6bh4p65lo15sdn9kgn6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

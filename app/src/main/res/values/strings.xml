@@ -8,4 +8,6 @@
     <string name="email_address">E-mail cím</string>
     <string name="password_again">jelszó megerősítése</string>
     <string name="cancel">Mégse</string>
+    <string name="sign_in_as_guest">Bejelentekezés vendégként</string>
+    <string name="log_in_with_google">Bejelentkezés google fiókkal</string>
 </resources>

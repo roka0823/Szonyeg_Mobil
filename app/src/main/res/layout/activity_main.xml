@@ -50,7 +50,6 @@
             android:id="@+id/LoginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/black"
             android:onClick="login"
             android:text="@string/login"
             app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
@@ -63,15 +62,39 @@
             android:id="@+id/RegisterButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="196dp"
             android:onClick="register"
             android:text="@string/registration"
-            android:textColor="#D7CCC8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            android:layout_marginBottom="196dp"
             tools:ignore="UsingOnClickInXml" />
+
+        <Button
+            android:id="@+id/guestLoginButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:onClick="loginAsGuest"
+            android:text="@string/sign_in_as_guest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RegisterButton" />
+
+        <Button
+            android:id="@+id/googleSignInButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="loginWithGoogle"
+            android:text="@string/log_in_with_google"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guestLoginButton" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

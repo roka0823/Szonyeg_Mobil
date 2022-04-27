@@ -1,14 +1,24 @@
 package com.example.szonyegshop;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class RegisterActivity extends AppCompatActivity {
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+public class RegisterActivity extends AppCompatActivity{
     private static final String LOG_TAG = RegisterActivity.class.getName();
     private static final String PREF_KEY = MainActivity.class.getPackage().toString();
 
@@ -18,6 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText PasswordConfirmEditText;
 
     private SharedPreferences preferences;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +53,8 @@ public class RegisterActivity extends AppCompatActivity {
         userNameEditText.setText(userName);
         passwordEditText.setText(password);
 
+        mAuth = FirebaseAuth.getInstance();
+
         Log.i(LOG_TAG, "onCreate");
     }
 
@@ -56,9 +69,26 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-
         Log.i(LOG_TAG, "Regisztrált " + userName + ", email " + email);
         //TODO: regisztráció
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Log.d(LOG_TAG, "User created!!! :) ");
+                    startShopping();
+                } else {
+                    Log.d(LOG_TAG, "USer wasn't created :( ");
+                    Toast.makeText(RegisterActivity.this, "USer wasn't created :( " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    private void startShopping(/* registered user class */){
+        Intent intent = new Intent(this, ShopListActivity.class);
+        startActivity(intent);
     }
 
     @Override
