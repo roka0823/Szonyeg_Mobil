@@ -1,8 +1,6 @@
 package com.example.szonyegshop;
 
-import androidx.fragment.app.FragmentActivity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +34,8 @@ public class SzonyegAdapter extends RecyclerView.Adapter<SzonyegAdapter.ViewHold
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false));
+        return new ViewHolder(LayoutInflater.from(mContext)
+                .inflate(R.layout.list_item, parent, false));
 
     }
 
@@ -89,8 +88,7 @@ public class SzonyegAdapter extends RecyclerView.Adapter<SzonyegAdapter.ViewHold
 
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            mSzonyegItemsData = (ArrayList) filterResults.values;
-
+            mSzonyegItemsData = (ArrayList)filterResults.values;
             notifyDataSetChanged();
         }
     };
@@ -115,7 +113,6 @@ public class SzonyegAdapter extends RecyclerView.Adapter<SzonyegAdapter.ViewHold
             itemView.findViewById(R.id.add_to_cart).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("Activity", "Add to card button megnyomva");
                     ((ShopListActivity)mContext).updateAlertIcon();
                 }
             });

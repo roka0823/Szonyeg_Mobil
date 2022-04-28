@@ -20,6 +20,10 @@ import android.widget.SearchView;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -29,7 +33,6 @@ import java.util.ArrayList;
 public class ShopListActivity extends AppCompatActivity {
     private static final String LOG_TAG = ShopListActivity.class.getName();
     private FirebaseUser user;
-    private FirebaseAuth mAuth;
 
     private RecyclerView myRecycleView;
     private ArrayList<Szonyeg> myItemList;
@@ -45,7 +48,6 @@ public class ShopListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_list);
-        mAuth = FirebaseAuth.getInstance();
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null) {
@@ -76,8 +78,7 @@ public class ShopListActivity extends AppCompatActivity {
 
         for (int i = 0; i < itemList.length ; i++){
             myItemList.add(new Szonyeg(itemList[i], itemInfo[i],
-                    itemPrice[i], itemsImageResource.getFloat(i, 0),
-                    itemsRate.getResourceId(i, 0)));
+                    itemPrice[i], itemsRate.getFloat(i,0), itemsImageResource.getResourceId(i, 0)));
         }
 
         itemsImageResource.recycle();
