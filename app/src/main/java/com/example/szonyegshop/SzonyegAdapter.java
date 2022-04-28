@@ -15,9 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
-import java.util.List;
 
 public class SzonyegAdapter extends RecyclerView.Adapter<SzonyegAdapter.ViewHolder> implements Filterable{
 
@@ -34,8 +32,7 @@ public class SzonyegAdapter extends RecyclerView.Adapter<SzonyegAdapter.ViewHold
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mContext)
-                .inflate(R.layout.list_item, parent, false));
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false));
 
     }
 

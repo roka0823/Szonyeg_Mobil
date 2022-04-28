@@ -1,47 +1,47 @@
 package com.example.szonyegshop;
 
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
-
-import android.content.res.TypedArray;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
+import android.content.res.TypedArray;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
-import android.widget.TableRow;
 import android.widget.TextView;
-
-
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.sql.Array;
 import java.util.ArrayList;
+
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 public class ShopListActivity extends AppCompatActivity {
     private static final String LOG_TAG = ShopListActivity.class.getName();
+    private static final String PREF_KEY = MainActivity.class.getPackage().toString();
     private FirebaseUser user;
+
+    private FrameLayout redCircle;
+    private TextView countTextView;
+    private int cartItems = 0;
+    private  int gridNumber = 1;
+
 
     private RecyclerView myRecycleView;
     private ArrayList<Szonyeg> myItemList;
     private SzonyegAdapter mAdapter;
-    private FrameLayout redCircle;
-    private TextView countTextView;
 
-    private int cartItems = 0;
-    private  int gridNumber = 1;
+    private SharedPreferences preferences;
+
     private boolean viewRow = true;
 
     @Override
@@ -57,7 +57,7 @@ public class ShopListActivity extends AppCompatActivity {
             finish();
         }
 
-        myRecycleView = findViewById(R.id.recycleView);
+        myRecycleView = findViewById(R.id.recyclerView);
         myRecycleView.setLayoutManager(new GridLayoutManager(this, gridNumber));
         myItemList = new ArrayList<>();
 
@@ -106,6 +106,7 @@ public class ShopListActivity extends AppCompatActivity {
         });
         return true;
     }
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -141,13 +142,16 @@ public class ShopListActivity extends AppCompatActivity {
         layoutManager.setSpanCount(spanCount);
     }
 
-    @Override
+    /*@Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        Log.v(LOG_TAG, "AJJAJJ1");
         final MenuItem alertMenuItem = menu.findItem(R.id.cart);
         FrameLayout rootView = (FrameLayout) alertMenuItem.getActionView();
 
         redCircle = (FrameLayout) rootView.findViewById(R.id.view_alert_red_circle);
         countTextView = (TextView) rootView.findViewById(R.id.view_alert_count_textview);
+
+        Log.v(LOG_TAG, "AJJAJJ2");
 
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,6 +161,7 @@ public class ShopListActivity extends AppCompatActivity {
         });
         return super.onPrepareOptionsMenu(menu);
     }
+    */
 
     public void updateAlertIcon() {
         cartItems = (cartItems + 1);

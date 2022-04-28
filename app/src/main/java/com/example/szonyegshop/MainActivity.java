@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void startShopping(/* registered user class */){
+    private void startShopping() {
         Intent intent = new Intent(this, ShopListActivity.class);
         startActivity(intent);
     }
@@ -190,5 +190,10 @@ public class MainActivity extends AppCompatActivity {
         Log.i(LOG_TAG, "onResume");
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(LOG_TAG, "onRestart");
+    }
 
 }
