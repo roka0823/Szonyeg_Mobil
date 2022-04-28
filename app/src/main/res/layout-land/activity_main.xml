@@ -20,6 +20,8 @@
             android:id="@+id/EditTextUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:autofillHints="name"
             android:ems="10"
             android:hint="@string/name"
@@ -31,13 +33,15 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.123" />
+            app:layout_constraintVertical_bias="0.12" />
 
         <EditText
             android:id="@+id/EditTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="password"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
@@ -45,36 +49,54 @@
             android:textColorHint="#424242"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/EditTextUsername"
-            app:layout_constraintVertical_bias="0.193"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintVertical_bias="0.117"
+            tools:layout_editor_absoluteX="10dp" />
 
         <Button
-        android:id="@+id/LoginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="login"
-        android:text="@string/login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditTextPassword"
-        app:layout_constraintVertical_bias="0.241"
-        tools:ignore="UsingOnClickInXml" />
+            android:id="@+id/LoginButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="login"
+            android:text="@string/login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/RegisterButton"
 
-    <Button
-        android:id="@+id/RegisterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        android:onClick="register"
-        android:text="@string/registration"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginButton"
-        app:layout_constraintVertical_bias="0.367"
-        tools:ignore="UsingOnClickInXml" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EditTextPassword"
+            app:layout_constraintVertical_bias="0.219"
+            tools:ignore="UsingOnClickInXml" />
+
+        <Button
+            android:id="@+id/RegisterButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:onClick="register"
+            android:text="@string/registration"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/LoginButton"
+            app:layout_constraintTop_toBottomOf="@+id/EditTextPassword"
+            app:layout_constraintVertical_bias="0.219"
+            tools:ignore="UsingOnClickInXml" />
+
+        <Button
+            android:id="@+id/guestLoginButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="loginAsGuest"
+            android:text="@string/sign_in_as_guest"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.997" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

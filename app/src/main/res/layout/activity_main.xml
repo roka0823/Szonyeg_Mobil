@@ -15,81 +15,117 @@
         android:layout_height="wrap_content"
         >
 
-        <EditText
-            android:id="@+id/EditTextUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="name"
-            android:hint="@string/name"
-            android:inputType="text"
-            android:padding="15dp"
-            android:textColorHint="#424242"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.33" />
-
-        <EditText
-            android:id="@+id/EditTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="password"
-            android:ems="10"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:padding="15dp"
-            android:textColorHint="#424242"
-            app:layout_constraintBottom_toTopOf="@+id/LoginButton"
-            app:layout_constraintTop_toBottomOf="@+id/EditTextUsername"
-            app:layout_constraintVertical_bias="0.276"
-            tools:layout_editor_absoluteX="16dp" />
-
-        <Button
-            android:id="@+id/LoginButton"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="login"
-            android:text="@string/login"
-            android:textColor="#512DA8"
-            app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditTextPassword"
-            tools:ignore="UsingOnClickInXml" />
-
-        <Button
-            android:id="@+id/RegisterButton"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="224dp"
-            android:onClick="register"
-            android:text="@string/registration"
-            android:textColor="#512DA8"
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="350dp"
+            android:layout_height="550dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="UsingOnClickInXml" />
+            app:layout_constraintTop_toTopOf="parent" >
 
-        <Button
-            android:id="@+id/guestLoginButton"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:onClick="loginAsGuest"
-            android:text="@string/sign_in_as_guest"
-            android:textColor="#512DA8"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RegisterButton"
-            app:layout_constraintVertical_bias="0.792" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/itemTitle"
+                    style="@style/ItemDetailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@string/welcome"
+                    android:textColor="?android:textColorSecondary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.152" />
+
+                <EditText
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/EditTextUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="name"
+                    android:hint="@string/name"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:textColorHint="#424242"
+                    app:layout_constraintBottom_toTopOf="@+id/EditTextPassword"
+                    app:layout_constraintTop_toBottomOf="@+id/itemTitle"
+                    app:layout_constraintVertical_bias="0.65"
+                    tools:layout_editor_absoluteX="0dp" />
+
+                <EditText
+                    android:id="@+id/EditTextPassword"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="172dp"
+                    android:autofillHints="password"
+                    android:ems="10"
+                    android:padding="15dp"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:textColorHint="#424242"
+                    app:layout_constraintBottom_toTopOf="@+id/guestLoginButton"
+                    app:layout_constraintTop_toBottomOf="@+id/itemTitle"
+                    app:layout_constraintVertical_bias="0.946"
+                    tools:layout_editor_absoluteX="0dp" />
+
+                <Button
+                    android:id="@+id/LoginButton"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginBottom="82dp"
+                    android:onClick="login"
+                    android:text="@string/login"
+                    android:textColor="#3D118C"
+                    app:layout_constraintBottom_toTopOf="@+id/guestLoginButton"
+                    app:layout_constraintEnd_toStartOf="@+id/RegisterButton"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/EditTextPassword"
+                    tools:ignore="UsingOnClickInXml" />
+
+                <Button
+                    android:id="@+id/RegisterButton"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginBottom="82dp"
+                    android:onClick="register"
+                    android:text="@string/registration"
+                    android:textColor="#FF3D118C"
+                    app:layout_constraintBottom_toTopOf="@+id/guestLoginButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/EditTextPassword"
+                    tools:ignore="UsingOnClickInXml" />
+
+                <Button
+                    android:id="@+id/guestLoginButton"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="28dp"
+                    android:onClick="loginAsGuest"
+                    android:text="@string/sign_in_as_guest"
+                    android:textColor="#FF3D118C"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

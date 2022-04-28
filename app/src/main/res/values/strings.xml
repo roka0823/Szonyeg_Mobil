@@ -14,4 +14,74 @@
     <string name="to_cart">Kosárba</string>
     <string name="description">Leírás</string>
     <string name="description2">Infó a Szőnyegről:</string>
+    <string name="welcome">Üdv Újra itt! :)</string>
+
+    <string-array name="szonyeg_names">
+        <item>Szonyeg#1</item>
+        <item>Szonyeg#2</item>
+        <item>Szonyeg#3</item>
+        <item>Szonyeg#4</item>
+        <item>Szonyeg#5</item>
+        <item>Szonyeg#6</item>
+        <item>Szonyeg#7</item>
+        <item>Szonyeg#8</item>
+        <item>Szonyeg#9</item>
+        <item>Szonyeg#10</item>
+
+    </string-array>
+
+    <string-array name="szonyeg_desc">
+        <item>Szonyeg#1 szonyeg leírás</item>
+        <item>Szonyeg#2 szonyeg leírás</item>
+        <item>Szonyeg#3 szonyeg leírás</item>
+        <item>Szonyeg#4 szonyeg leírás</item>
+        <item>Szonyeg#5 szonyeg leírás</item>
+        <item>Szonyeg#6 szonyeg leírás</item>
+        <item>Szonyeg#7 szonyeg leírás</item>
+        <item>Szonyeg#8 szonyeg leírás</item>
+        <item>Szonyeg#9 szonyeg leírás</item>
+        <item>Szonyeg#10 szonyeg leírás</item>
+    </string-array>
+
+    <array name="szonyeg_rates">
+        <item>3.5</item>
+        <item>5</item>
+        <item>4</item>
+        <item>1.5</item>
+        <item>5</item>
+        <item>3</item>
+        <item>4.5</item>
+        <item>4</item>
+        <item>5</item>
+        <item>2.5</item>
+    </array>
+
+    <array name="szonyeg_images">
+        <item>@drawable/szonyeg1_1</item>
+        <item>@drawable/szonyeg2_1</item>
+        <item>@drawable/szonyeg3_1</item>
+        <item>@drawable/szonyeg4_1</item>
+        <item>@drawable/szonyeg5_1</item>
+        <item>@drawable/szonyeg6_1</item>
+        <item>@drawable/szonyeg7_1</item>
+        <item>@drawable/szonyeg_8_1</item>
+        <item>@drawable/szonyeg_9_1</item>
+        <item>@drawable/szonyeg_10_1</item>
+
+    </array>
+
+    <array name="szonyeg_price">
+        <item>1000 Ft</item>
+        <item>2000 Ft</item>
+        <item>3000 Ft</item>
+        <item>4000 Ft</item>
+        <item>5000 Ft</item>
+        <item>6000 Ft</item>
+        <item>7000 Ft</item>
+        <item>8000 Ft</item>
+        <item>9000 Ft</item>
+        <item>10000 Ft</item>
+    </array>
+
+
 </resources>
