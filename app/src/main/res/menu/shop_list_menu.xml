@@ -3,39 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/search_bar"
-        android:title="Search"
-        android:icon="@drawable/ic_search"
         app:showAsAction="always"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search"
         app:actionViewClass="android.widget.SearchView"
-        />
-
+        >
+    </item>
     <item
         android:id="@+id/cart"
-        android:title="Kosár"
-        android:icon="@drawable/ic_shopping_cart"
         app:showAsAction="always"
-        android:actionLayout="@layout/custom_menu_item"
-
-        />
-
+        android:title="@string/to_cart"
+        android:icon="@drawable/ic_shopping_cart"
+        app:actionLayout="@layout/custom_menu_item"
+        >
+    </item>
     <item
         android:id="@+id/view_selector"
-        android:title="Nézet"
-        android:icon="@drawable/ic_view2"
         app:showAsAction="always"
-        />
-
-    <item
-        android:id="@+id/setting"
-        android:title="Beállítások"
-        app:showAsAction="never"
-        app:actionViewClass="android.widget.SearchView"
-        />
-
+        android:title="@string/views"
+        android:icon="@drawable/ic_view2"
+        >
+    </item>
     <item
         android:id="@+id/logoutButton"
-        android:title="Kijelentkezés"
         app:showAsAction="never"
-        app:actionViewClass="android.widget.SearchView"
-        />
+        android:title="Kijelentkezés"
+        android:orderInCategory="2">
+    </item>
+    <item
+        android:id="@+id/settings"
+        app:showAsAction="never"
+        android:title="Beállítás"
+        android:orderInCategory="1">
+    </item>
 </menu>

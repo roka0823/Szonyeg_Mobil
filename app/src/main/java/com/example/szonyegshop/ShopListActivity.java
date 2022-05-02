@@ -106,7 +106,8 @@ public class ShopListActivity extends AppCompatActivity {
         });
         return true;
     }
-    @SuppressLint("NonConstantResourceId")
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -115,7 +116,7 @@ public class ShopListActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 finish();
                 return true;
-            case R.id.setting:
+            case R.id.settings:
                 Log.d(LOG_TAG, "Setting clicked!");
                 FirebaseAuth.getInstance().signOut();
                 finish();
@@ -142,16 +143,20 @@ public class ShopListActivity extends AppCompatActivity {
         layoutManager.setSpanCount(spanCount);
     }
 
-    /*@Override
+    @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        Log.v(LOG_TAG, "AJJAJJ1");
+
+        Log.v(LOG_TAG, "elso");
         final MenuItem alertMenuItem = menu.findItem(R.id.cart);
+        Log.v(LOG_TAG, "masodik");
         FrameLayout rootView = (FrameLayout) alertMenuItem.getActionView();
+        Log.v(LOG_TAG, "harmadik");
 
         redCircle = (FrameLayout) rootView.findViewById(R.id.view_alert_red_circle);
+        Log.v(LOG_TAG, "negyedik");
         countTextView = (TextView) rootView.findViewById(R.id.view_alert_count_textview);
+        Log.v(LOG_TAG, "otodik");
 
-        Log.v(LOG_TAG, "AJJAJJ2");
 
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,7 +166,7 @@ public class ShopListActivity extends AppCompatActivity {
         });
         return super.onPrepareOptionsMenu(menu);
     }
-    */
+
 
     public void updateAlertIcon() {
         cartItems = (cartItems + 1);

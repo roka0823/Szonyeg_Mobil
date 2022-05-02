@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
@@ -13,8 +12,7 @@
             android:id="@+id/itemImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:contentDescription="TODO" />
+            android:adjustViewBounds="true" />
 
         <TextView
             android:id="@+id/itemTitle"
@@ -32,9 +30,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/itemTitle"
-            android:isIndicator="true"
             android:numStars="6"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:isIndicator="true" />
 
         <TextView
             android:id="@+id/subTitle"
@@ -43,8 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/ratingBar"
             android:padding="8dp"
-            android:text="@string/description2"
-            android:textColor="?android:textColorSecondary" />
+            android:text="@string/description2" />
 
         <TextView
             android:id="@+id/price"
@@ -52,19 +49,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/subTitle"
-            android:layout_centerHorizontal="true"
             android:layout_marginBottom="12dp"
             android:padding="8dp"
-            android:textColor="@color/red" />
+            android:layout_centerHorizontal="true"/>
 
         <Button
             android:id="@+id/add_to_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/price"
-            android:layout_centerHorizontal="true"
             android:text="@string/to_cart"
-            android:theme="@style/Button.White" />
+            android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
