@@ -34,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
-                    android:text="@string/welcome"
+                    android:text="@string/Hi"
                     android:textColor="?android:textColorSecondary"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"

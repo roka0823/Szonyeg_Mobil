@@ -17,6 +17,7 @@
     <string name="welcome">Üdv Újra itt! :)</string>
     <string name="search">Keresés</string>
     <string name="views">nézetek</string>
+    <string name="Hi">Szia!</string>
 
     <string-array name="szonyeg_names">
         <item>Szonyeg#1</item>
@@ -71,6 +72,21 @@
         <item>@drawable/szonyeg_10_1</item>
 
     </array>
+
+    <array name="szonyeg_images2">
+        <item>@drawable/szonyeg1_2</item>
+        <item>@drawable/szonyeg2_2</item>
+        <item>@drawable/szonyeg3_2</item>
+        <item>@drawable/szonyeg4_2</item>
+        <item>@drawable/szonyeg5_2</item>
+        <item>@drawable/szonyeg6_2</item>
+        <item>@drawable/szonyeg7_2</item>
+        <item>@drawable/szonyeg_8_2</item>
+        <item>@drawable/szonyeg_9_2</item>
+        <item>@drawable/szonyeg_10_2</item>
+
+    </array>
+
 
     <array name="szonyeg_price">
         <item>1000 Ft</item>

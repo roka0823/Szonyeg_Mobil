@@ -1,11 +1,16 @@
 package com.example.szonyegshop;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -17,8 +22,17 @@ import android.widget.FrameLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -37,8 +51,11 @@ public class ShopListActivity extends AppCompatActivity {
 
 
     private RecyclerView myRecycleView;
-    private ArrayList<Szonyeg> myItemList;
+    private ArrayList<Szonyeg> mItemList;
     private SzonyegAdapter mAdapter;
+
+    private FirebaseFirestore mFirestore;
+    private CollectionReference mItems;
 
     private SharedPreferences preferences;
 
@@ -57,14 +74,46 @@ public class ShopListActivity extends AppCompatActivity {
             finish();
         }
 
+       /* preferences = getSharedPreferences(PREF_KEY, MODE_PRIVATE);
+        if(preferences != null){
+            cartItems = preferences.getInt("cartItems", 0);
+            gridNumber = preferences.getInt("gridNum", 1);
+        }
+
+        */
+
         myRecycleView = findViewById(R.id.recyclerView);
         myRecycleView.setLayoutManager(new GridLayoutManager(this, gridNumber));
-        myItemList = new ArrayList<>();
+        mItemList = new ArrayList<>();
 
-        mAdapter = new SzonyegAdapter(this, myItemList);
+        mAdapter = new SzonyegAdapter(this, mItemList);
         myRecycleView.setAdapter(mAdapter);
 
-        initializeData();
+        mFirestore = FirebaseFirestore.getInstance();
+        mItems = mFirestore.collection("Items");
+
+        queryData();
+
+
+        //TypedArray itemsImageResource = getResources().obtainTypedArray(R.array.szonyeg_images);
+        //new RandomAsyncTask(itemsImageResource).execute();
+    }
+
+    private void queryData() {
+        mItemList.clear();
+        mItems.orderBy("name").limit(10).get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                Szonyeg item = document.toObject(Szonyeg.class);
+                mItemList.add(item);
+            }
+
+            if (mItemList.size() == 0) {
+                initializeData();
+                queryData();
+            }
+
+            mAdapter.notifyDataSetChanged();
+        });
     }
 
     private void initializeData(){
@@ -74,16 +123,16 @@ public class ShopListActivity extends AppCompatActivity {
         TypedArray itemsImageResource = getResources().obtainTypedArray(R.array.szonyeg_images);
         TypedArray itemsRate = getResources().obtainTypedArray(R.array.szonyeg_rates);
 
-        myItemList.clear();
-
-        for (int i = 0; i < itemList.length ; i++){
-            myItemList.add(new Szonyeg(itemList[i], itemInfo[i],
-                    itemPrice[i], itemsRate.getFloat(i,0), itemsImageResource.getResourceId(i, 0)));
+        for (int i = 0; i < itemList.length; i++) {
+            mItems.add(new Szonyeg(
+                    itemList[i],
+                    itemInfo[i],
+                    itemPrice[i],
+                    itemsRate.getFloat(i, 0),
+                    itemsImageResource.getResourceId(i, 0)));
         }
 
         itemsImageResource.recycle();
-
-        mAdapter.notifyDataSetChanged();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -146,16 +195,11 @@ public class ShopListActivity extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
 
-        Log.v(LOG_TAG, "elso");
         final MenuItem alertMenuItem = menu.findItem(R.id.cart);
-        Log.v(LOG_TAG, "masodik");
         FrameLayout rootView = (FrameLayout) alertMenuItem.getActionView();
-        Log.v(LOG_TAG, "harmadik");
 
         redCircle = (FrameLayout) rootView.findViewById(R.id.view_alert_red_circle);
-        Log.v(LOG_TAG, "negyedik");
         countTextView = (TextView) rootView.findViewById(R.id.view_alert_count_textview);
-        Log.v(LOG_TAG, "otodik");
 
 
         rootView.setOnClickListener(new View.OnClickListener() {
