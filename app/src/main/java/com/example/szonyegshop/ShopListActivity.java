@@ -111,6 +111,11 @@ public class ShopListActivity extends AppCompatActivity {
         }
     };
 
+    public void toCart(){
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
+    }
+
     private void queryData() {
         mItemList.clear();
         mItems.orderBy("name").limit(10).get().addOnSuccessListener(queryDocumentSnapshots -> {
@@ -184,6 +189,7 @@ public class ShopListActivity extends AppCompatActivity {
                 return true;
             case R.id.cart:
                 Log.d(LOG_TAG, "Cart clicked!");
+                startCart();
                 return true;
             case R.id.view_selector:
                 if (viewRow) {
@@ -243,6 +249,9 @@ public class ShopListActivity extends AppCompatActivity {
         unregisterReceiver(powerReciever);
     }
 
+
+
+
     public void to_bovebben(View view) {
         Log.d(LOG_TAG, "Rányomtálxd");
         startBovebben();
@@ -255,4 +264,15 @@ public class ShopListActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+
+    private void startCart() {
+        Log.d(LOG_TAG, "startCart()");
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
+    }
+
+    public void to_cart(MenuItem item) {
+        Log.d(LOG_TAG, "to_cart");
+        startCart();
+    }
 }

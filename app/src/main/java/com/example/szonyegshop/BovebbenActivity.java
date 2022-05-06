@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class BovebbenActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String LOG_TAG = BovebbenActivity.class.getName();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

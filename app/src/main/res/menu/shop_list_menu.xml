@@ -13,6 +13,7 @@
         android:id="@+id/cart"
         app:showAsAction="always"
         android:title="@string/to_cart"
+        android:onClick="to_cart"
         android:icon="@drawable/ic_shopping_cart"
         app:actionLayout="@layout/custom_menu_item"
         >
