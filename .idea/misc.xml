@@ -4,14 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/drawable/circle.xml" value="0.1835" />
+        <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/drawable/honkhonk.xml" value="0.314" />
+        <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/drawable/ic_launcher_background.xml" value="0.314" />
         <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/drawable/ic_search.xml" value="0.2965" />
         <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/drawable/ic_view.xml" value="0.2965" />
         <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/layout-land/activity_main.xml" value="0.22" />
         <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/layout-land/custom_menu_item.xml" value="0.15989583333333332" />
+        <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/layout/activity_bovebben.xml" value="0.2756232686980609" />
+        <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/layout/activity_cart.xml" value="0.33" />
         <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/layout/activity_register.xml" value="0.29012345679012347" />
         <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/layout/activity_shop_list.xml" value="0.25" />
-        <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/layout/custom_menu_item.xml" value="0.9" />
+        <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/layout/custom_menu_item.xml" value="0.25" />
         <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/layout/custom_menu_item2.xml" value="0.2359375" />
         <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/layout/list_item.xml" value="0.5" />
         <entry key="..\:/1.suli/4_felev/Mobil_alkfej/app/src/main/res/menu/shop_list_menu.xml" value="0.22" />

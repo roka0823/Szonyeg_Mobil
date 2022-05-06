@@ -18,6 +18,8 @@
     <string name="search">Keresés</string>
     <string name="views">nézetek</string>
     <string name="Hi">Szia!</string>
+    <string name="more">Bővebben</string>
+    <string name="more_xd">Bővebben :D</string>
 
     <string-array name="szonyeg_names">
         <item>Szonyeg#1</item>

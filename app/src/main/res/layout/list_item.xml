@@ -54,10 +54,19 @@
             android:layout_centerHorizontal="true"/>
 
         <Button
-            android:id="@+id/add_to_cart"
+            android:id="@+id/bovebben"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/price"
+            android:onClick="to_bovebben"
+            android:layout_centerHorizontal="true"
+            android:text="@string/more" />
+
+        <Button
+            android:id="@+id/add_to_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bovebben"
             android:text="@string/to_cart"
             android:layout_centerHorizontal="true"/>
 

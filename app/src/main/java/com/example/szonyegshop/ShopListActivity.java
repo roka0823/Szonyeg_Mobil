@@ -1,9 +1,7 @@
 package com.example.szonyegshop;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,17 +20,11 @@ import android.widget.FrameLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -48,7 +40,7 @@ public class ShopListActivity extends AppCompatActivity {
     private TextView countTextView;
     private int cartItems = 0;
     private  int gridNumber = 1;
-
+    private int queryLimit = 10;
 
     private RecyclerView myRecycleView;
     private ArrayList<Szonyeg> mItemList;
@@ -91,13 +83,33 @@ public class ShopListActivity extends AppCompatActivity {
 
         mFirestore = FirebaseFirestore.getInstance();
         mItems = mFirestore.collection("Items");
-
         queryData();
 
-
-        //TypedArray itemsImageResource = getResources().obtainTypedArray(R.array.szonyeg_images);
-        //new RandomAsyncTask(itemsImageResource).execute();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_POWER_CONNECTED);
+        filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+        this.registerReceiver(null, filter);
     }
+
+    BroadcastReceiver powerReciever = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (action == null){
+                return;
+            }
+            switch (action) {
+                case Intent.ACTION_POWER_CONNECTED:
+                    queryLimit = 10;
+                    break;
+                case Intent.ACTION_POWER_DISCONNECTED:
+                    queryLimit = 5;
+                    break;
+            }
+            queryData();
+        }
+    };
 
     private void queryData() {
         mItemList.clear();
@@ -185,6 +197,7 @@ public class ShopListActivity extends AppCompatActivity {
         }
     }
 
+
     private void changeSpanCount(MenuItem item, int drawableId, int spanCount) {
         viewRow = !viewRow;
         item.setIcon(drawableId);
@@ -205,6 +218,7 @@ public class ShopListActivity extends AppCompatActivity {
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 onOptionsItemSelected(alertMenuItem);
             }
         });
@@ -213,14 +227,32 @@ public class ShopListActivity extends AppCompatActivity {
 
 
     public void updateAlertIcon() {
-        cartItems = (cartItems + 1);
-        if (0 < cartItems) {
-            countTextView.setText(String.valueOf(cartItems));
-        } else {
-            countTextView.setText("");
-        }
+            cartItems = (cartItems + 1);
+            if (0 < cartItems) {
+                countTextView.setText(String.valueOf(cartItems));
+            } else {
+                countTextView.setText("");
+            }
 
-        redCircle.setVisibility((cartItems > 0) ? VISIBLE : GONE);
+            redCircle.setVisibility((cartItems > 0) ? VISIBLE : GONE);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(powerReciever);
+    }
+
+    public void to_bovebben(View view) {
+        Log.d(LOG_TAG, "Rányomtálxd");
+        startBovebben();
+    }
+
+
+    private void startBovebben() {
+            Log.d(LOG_TAG, "Na? :D");
+            Intent intent = new Intent(this, BovebbenActivity.class);
+            startActivity(intent);
+        }
 
 }

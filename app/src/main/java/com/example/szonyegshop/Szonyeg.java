@@ -7,8 +7,6 @@ public class Szonyeg {
     private float ratedInfo;
     private int imageResource;
 
-
-
     public Szonyeg(String name, String info, String price, float ratedInfo, int imageResource) {
         this.name = name;
         this.info = info;
