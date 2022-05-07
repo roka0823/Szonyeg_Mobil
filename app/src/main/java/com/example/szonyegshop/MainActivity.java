@@ -17,18 +17,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInApi;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.GoogleAuthProvider;
-
-import org.w3c.dom.Text;
 
 public class MainActivity
         extends AppCompatActivity
@@ -43,7 +36,6 @@ public class MainActivity
 
     private SharedPreferences preferences;
     private FirebaseAuth mAuth;
-    private GoogleSignInClient mGoogleSignInClient;
 
 
     @Override
@@ -56,10 +48,6 @@ public class MainActivity
 
         preferences = getSharedPreferences(PREF_KEY, MODE_PRIVATE);
         mAuth = FirebaseAuth.getInstance();
-
-        //Random Async Task
-        //TextView text = findViewById(R.id.itemTitle);
-        //new RandomAsyncTask(text).execute();
 
         getSupportLoaderManager().restartLoader(0, null, this);
 
@@ -85,22 +73,6 @@ public class MainActivity
         }
     }
 
-    private void firebaseAuthWithGoogle(String idToken){
-        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
-        mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Log.d(LOG_TAG, "User logged in :) ");
-                    startShopping();
-                } else {
-                    Log.d(LOG_TAG, "User login fail :( ");
-                    Toast.makeText(MainActivity.this, "User login fail :( " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-    }
-
     public void login(View view) {
 
         String username = userNameET.getText().toString();
@@ -113,7 +85,6 @@ public class MainActivity
         }
 
 
-        //Log.i(LOG_TAG, "Bejelentkezett " + usernameStr + ", jelszó " + passwordStr);
         mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -145,11 +116,6 @@ public class MainActivity
         startActivity(intent);
     }
 
-    public void loginWithGoogle(View view) {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
-
     public void loginAsGuest(View view) {
         mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -163,6 +129,23 @@ public class MainActivity
                 }
             }
         });
+    }
+
+    @NonNull
+    @Override
+    public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
+        return new RandomAsyncLoader(this);
+    }
+
+    @Override
+    public void onLoadFinished(@NonNull Loader<String> loader, String data) {
+        TextView text = findViewById(R.id.itemTitle);
+        text.setText(data);
+    }
+
+    @Override
+    public void onLoaderReset(@NonNull Loader<String> loader) {
+
     }
 
     @Override
@@ -207,20 +190,5 @@ public class MainActivity
         Log.i(LOG_TAG, "onRestart");
     }
 
-    @NonNull
-    @Override
-    public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
-        return new RandomAsyncLoader(this);
-    }
 
-    @Override
-    public void onLoadFinished(@NonNull Loader<String> loader, String data) {
-        TextView text = findViewById(R.id.itemTitle);
-        text.setText(data);
-    }
-
-    @Override
-    public void onLoaderReset(@NonNull Loader<String> loader) {
-
-    }
 }

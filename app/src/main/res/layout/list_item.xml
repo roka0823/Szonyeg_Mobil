@@ -55,11 +55,12 @@
 
         <Button
             android:id="@+id/bovebben"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/price"
-            android:onClick="to_bovebben"
             android:layout_centerHorizontal="true"
+            android:onClick="to_bovebben"
             android:text="@string/more" />
 
         <Button
@@ -67,8 +68,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/bovebben"
-            android:text="@string/to_cart"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:text="@string/to_cart" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

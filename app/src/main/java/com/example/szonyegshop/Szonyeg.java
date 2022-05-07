@@ -7,15 +7,15 @@ public class Szonyeg {
     private float ratedInfo;
     private int imageResource;
 
+    public Szonyeg() {
+    }
+
     public Szonyeg(String name, String info, String price, float ratedInfo, int imageResource) {
         this.name = name;
         this.info = info;
         this.price = price;
         this.ratedInfo = ratedInfo;
         this.imageResource = imageResource;
-    }
-
-    public Szonyeg() {
     }
 
     public String getName() {

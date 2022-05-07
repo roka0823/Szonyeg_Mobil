@@ -111,11 +111,6 @@ public class ShopListActivity extends AppCompatActivity {
         }
     };
 
-    public void toCart(){
-        Intent intent = new Intent(this, CartActivity.class);
-        startActivity(intent);
-    }
-
     private void queryData() {
         mItemList.clear();
         mItems.orderBy("name").limit(10).get().addOnSuccessListener(queryDocumentSnapshots -> {
@@ -203,6 +198,27 @@ public class ShopListActivity extends AppCompatActivity {
         }
     }
 
+    public void to_bovebben(View view) {
+        Log.d(LOG_TAG, "Rányomtálxd");
+        startBovebben();
+    }
+
+    private void startBovebben() {
+        Log.d(LOG_TAG, "Na? :D");
+        Intent intent = new Intent(this, BovebbenActivity.class);
+        startActivity(intent);
+    }
+
+    private void startCart() {
+        Log.d(LOG_TAG, "startCart()");
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
+    }
+
+    public void to_cart(MenuItem item) {
+        Log.d(LOG_TAG, "to_cart");
+        startCart();
+    }
 
     private void changeSpanCount(MenuItem item, int drawableId, int spanCount) {
         viewRow = !viewRow;
@@ -213,13 +229,11 @@ public class ShopListActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-
         final MenuItem alertMenuItem = menu.findItem(R.id.cart);
         FrameLayout rootView = (FrameLayout) alertMenuItem.getActionView();
 
         redCircle = (FrameLayout) rootView.findViewById(R.id.view_alert_red_circle);
         countTextView = (TextView) rootView.findViewById(R.id.view_alert_count_textview);
-
 
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -230,7 +244,6 @@ public class ShopListActivity extends AppCompatActivity {
         });
         return super.onPrepareOptionsMenu(menu);
     }
-
 
     public void updateAlertIcon() {
             cartItems = (cartItems + 1);
@@ -247,32 +260,5 @@ public class ShopListActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(powerReciever);
-    }
-
-
-
-
-    public void to_bovebben(View view) {
-        Log.d(LOG_TAG, "Rányomtálxd");
-        startBovebben();
-    }
-
-
-    private void startBovebben() {
-            Log.d(LOG_TAG, "Na? :D");
-            Intent intent = new Intent(this, BovebbenActivity.class);
-            startActivity(intent);
-        }
-
-
-    private void startCart() {
-        Log.d(LOG_TAG, "startCart()");
-        Intent intent = new Intent(this, CartActivity.class);
-        startActivity(intent);
-    }
-
-    public void to_cart(MenuItem item) {
-        Log.d(LOG_TAG, "to_cart");
-        startCart();
     }
 }

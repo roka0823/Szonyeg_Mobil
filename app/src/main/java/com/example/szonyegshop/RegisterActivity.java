@@ -8,13 +8,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -86,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity{
         });
     }
 
-    private void startShopping(/* registered user class */){
+    private void startShopping(){
         Intent intent = new Intent(this, ShopListActivity.class);
         startActivity(intent);
     }
