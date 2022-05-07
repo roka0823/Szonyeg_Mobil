@@ -173,15 +173,9 @@ public class ShopListActivity extends AppCompatActivity {
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.logoutButton:
-                Log.d(LOG_TAG, "Logout clicked!");
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                return true;
             case R.id.settings:
                 Log.d(LOG_TAG, "Setting clicked!");
                 FirebaseAuth.getInstance().signOut();
@@ -190,6 +184,12 @@ public class ShopListActivity extends AppCompatActivity {
             case R.id.cart:
                 Log.d(LOG_TAG, "Cart clicked!");
                 startCart();
+                return true;
+            case R.id.logoutButton:
+                Log.d(LOG_TAG, "Logout clicked!");
+                unregisterReceiver(powerReciever);
+                FirebaseAuth.getInstance().signOut();
+                finish();
                 return true;
             case R.id.view_selector:
                 if (viewRow) {
